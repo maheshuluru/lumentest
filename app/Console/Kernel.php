@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\Transfer::class,
+        Commands\TransferUap::class,
+        Commands\TransferResult::class
     ];
 
     /**
@@ -24,6 +26,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //
+        $schedule->command('transfer:bs')->everyFiveMinutes();
     }
 }

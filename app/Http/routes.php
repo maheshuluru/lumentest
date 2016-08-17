@@ -11,11 +11,12 @@
 |
 */
 
-$app->group(['prefix' => 'api/v1', 'namespace'=>'App\Http\Controllers\V1'], function() use($app){
+$app->group(['prefix' => 'api/v1', 'namespace'=>'App\Http\Controllers\V1', 'middleware'=>'auth'], function() use($app){
     $app->get('/users/{userId}/banks', 'BanksController@index');
     $app->get('/users/{userId}/banks/{bankId}', 'BanksController@read');
     $app->post('/users/{userId}/banks', 'BanksController@create');
     $app->put('/users/{userId}/banks/{bankId}', 'BanksController@update');
     $app->delete('/users/{userId}/banks/{bankId}', 'BanksController@delete');
     $app->post('/users/{userId}/banks/{bankId}/withdrawal', 'BanksController@withdrawal');
+    $app->get('/withdrawals', 'WithdrawalsController@index');
 });
