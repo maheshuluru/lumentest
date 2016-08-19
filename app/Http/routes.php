@@ -19,4 +19,5 @@ $app->group(['prefix' => 'api/v1', 'namespace'=>'App\Http\Controllers\V1', 'midd
     $app->delete('/users/{userId}/banks/{bankId}', 'BanksController@delete');
     $app->post('/users/{userId}/banks/{bankId}/withdrawal', 'BanksController@withdrawal');
     $app->get('/withdrawals', 'WithdrawalsController@index');
+    $app->patch('/withdrawals/{id}', 'WithdrawalsController@update');
 });
